@@ -94,7 +94,7 @@ class XMPTestUnitFilter < XMPFilter
 
   module Poetry
     def nil_assertion(expression)
-      ["assert_nil #{expression}"]
+      ["assert { #{expression} == nil }"]
     end
 
     def value_assertions(klass_txt, value_txt, value, expression)
