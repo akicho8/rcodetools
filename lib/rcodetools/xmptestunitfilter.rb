@@ -102,7 +102,7 @@ class XMPTestUnitFilter < XMPFilter
       when Float
         ["assert_in_delta #{value.inspect}, #{expression}, #{FLOAT_TOLERANCE}"]
       when Numeric, String, Hash, Array, Regexp, TrueClass, FalseClass, Symbol, NilClass
-        ["assert_equal #{value_txt}, #{expression}"]
+        ["assert { #{expression} == #{value_txt} }"]
       else
         object_assertions klass_txt, value_txt, expression
       end
@@ -114,7 +114,7 @@ class XMPTestUnitFilter < XMPFilter
     end
 
     def equal_assertion(expected, actual)
-      "assert_equal #{expected}, #{actual}"
+      "assert { #{expected}, #{actual} }"
     end
   end
 end
