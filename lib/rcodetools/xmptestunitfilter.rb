@@ -63,7 +63,7 @@ class XMPTestUnitFilter < XMPFilter
   end
 
   def raise_assertion(expression, exceptions, index)
-    ["assert_raise(#{exceptions[index][0]}){#{expression}}"]
+    ["assert_raise(#{exceptions[index][0]}) { #{expression} }"]
   end
 
   module WithParentheses
