@@ -100,7 +100,7 @@ class XMPTestUnitFilter < XMPFilter
     def value_assertions(klass_txt, value_txt, value, expression)
       case value
       when Float
-        ["assert_in_delta #{value.inspect}, #{expression}, #{FLOAT_TOLERANCE}"]
+        ["assert { #{expression} == #{value.inspect} }"]
       when Numeric, String, Hash, Array, Regexp, TrueClass, FalseClass, Symbol, NilClass
         ["assert { #{expression} == #{value_txt} }"]
       else
