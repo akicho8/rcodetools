@@ -109,8 +109,10 @@ class XMPTestUnitFilter < XMPFilter
     end
 
     def object_assertions(klass_txt, value_txt, expression)
-      [ "assert_kind_of #{klass_txt}, #{expression} ",
-        "assert_equal #{value_txt.inspect}, #{expression}.inspect" ] 
+      [
+        # "assert { #{expression}.class.name == #{klass_txt} }",
+        "assert { #{expression} == #{value_txt} }",
+      ]
     end
 
     def equal_assertion(expected, actual)
